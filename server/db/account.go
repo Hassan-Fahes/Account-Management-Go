@@ -93,3 +93,34 @@ func UpdateAccount(account models.Account, accountID string) (*mongo.UpdateResul
 	log.Println("Update result:", updateResult) 
 	return updateResult, nil
 }
+
+func CountAccountsByAddress(address string) (int64, error) {
+	collection := client.Database("account_management").Collection("accounts")
+
+	filter := bson.M{"address": address}
+
+	count, err := collection.CountDocuments(context.TODO(), filter)
+	if err != nil {
+		return 0, err
+	}
+
+	return count, nil
+}
+
+
+func GetCountOfOtherAddresses() (int64, error) {
+    collection := client.Database("account_management").Collection("accounts")
+
+    filter := bson.M{
+        "address": bson.M{
+            "$nin": []string{"Jibchit", "Douer"},
+        },
+    }
+
+    count, err := collection.CountDocuments(context.TODO(), filter)
+    if err != nil {
+        return 0, err
+    }
+
+    return count, nil
+}

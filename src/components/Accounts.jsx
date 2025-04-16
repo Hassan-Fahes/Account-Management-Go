@@ -69,7 +69,6 @@ function Accounts({ globalFilter, setData , setGlobalFilter , setFilterType , se
         setUser(null);
         navigate("/");
       } else {
-        // حالة النجاح
         setErrors({
           errorCode: "",
           errorName: "",

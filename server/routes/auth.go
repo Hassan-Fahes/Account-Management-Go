@@ -8,7 +8,7 @@ import (
 // jwtSecret مفتاح التوقيع لتوليد التوكن
 var jwtSecret = []byte("fhdsfhdsjkweuhsfjf9weruwyhgfksdhfkhdskjfhmnvsnofhwhffbmnsbfdsf")
 
-// Claims هي بنية تحتوي على بيانات التوكن
+// Claims
 type Claims struct {
 	Username string `json:"username"`
 	jwt.RegisteredClaims

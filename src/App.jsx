@@ -1,6 +1,6 @@
 // App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Admin, Login } from './pages';
+import { Admin, Chart1, Login, Syncfusion } from './pages';
 import ProtectedRoute from './ProtectedRoute/PrivateRoute';
 import PublicRoute from './ProtectedRoute/PublicRoute';
 
@@ -13,6 +13,8 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/admin" element={<Admin />} />
+          <Route path='/syncfusion' element={<Syncfusion />} />     
+          <Route path='/chart1' element={<Chart1/>} />     
         </Route>
       </Routes>
     </BrowserRouter>

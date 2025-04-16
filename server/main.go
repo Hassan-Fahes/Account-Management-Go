@@ -27,6 +27,11 @@ func main() {
 		routes.GetAccounts(w, r)
 	})
 
+	http.HandleFunc("/getOtherAccount", func(w http.ResponseWriter, r *http.Request) {
+		middleware.EnableCors(w , r)
+		routes.GetOtherAccounts(w, r)
+	})
+
 	http.HandleFunc("/addAccount" , func(w http.ResponseWriter , r *http.Request) {
 		middleware.EnableCors(w , r) 
 		routes.AddAccount(w , r)
@@ -40,6 +45,31 @@ func main() {
 	http.HandleFunc("/updateAccount" , func(w http.ResponseWriter , r *http.Request) {
 		middleware.EnableCors(w , r) 
 		routes.UpdateAccount(w , r)
+	})
+
+	http.HandleFunc("/removeFromAccounts" , func(w http.ResponseWriter , r *http.Request) {
+		middleware.EnableCors(w , r) 
+		routes.RemoveFromAccounts(w , r)
+	})
+
+	http.HandleFunc("/removeFromAccounts_2" , func(w http.ResponseWriter , r *http.Request) {
+		middleware.EnableCors(w , r) 
+		routes.RemoveFromAccounts_2(w , r)
+	})
+
+	http.HandleFunc("/getNumberOfJebchit" , func(w http.ResponseWriter , r *http.Request) {
+		middleware.EnableCors(w , r) 
+		routes.GetNumberOfJebchit(w , r)
+	}) 
+
+	http.HandleFunc("/getNumberOfDouer" , func(w http.ResponseWriter , r *http.Request) {
+		middleware.EnableCors(w , r) 
+		routes.GetNumberOfDouer(w , r)
+	})
+
+	http.HandleFunc("/getNumberOfOther" , func(w http.ResponseWriter , r *http.Request) {
+		middleware.EnableCors(w , r) 
+		routes.GetNumberOfOther(w , r)
 	})
 
 	log.Println("Server is running on http://localhost:8080")
